@@ -18,10 +18,8 @@ exports.createPost = async (req, res) => {
       answer: req.body.answer || '',
       tags: req.body.tags || [],
     });
-console.log("Creating post:", newPost);
     const savedPost = await newPost.save();
     const populatedPost = await savedPost.populate('user', 'username profilePicture');
-console.log("Post created:", populatedPost);
     const io = req.app.get('io');
     io.emit('new_post', populatedPost);
 
