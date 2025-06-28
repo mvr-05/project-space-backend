@@ -47,4 +47,8 @@ io.on('connection', socket => {
 });
 
 const PORT = process.env.PORT || 5000;
-server.listen(PORT, () => console.log(`Server running on ${PORT}`));
+server.listen(PORT, () =>{ console.log(`Server running on ${PORT}`)
+setInterval(() => {
+    fetch("https://project-space-backend.onrender.com/api");
+}, 840000);
+});
