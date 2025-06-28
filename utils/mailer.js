@@ -14,6 +14,10 @@ const sendMail = async (to, subject, text) => {
         to,
         subject,
         text
+    }).then(() => {
+        console.log(`Email sent to ${to} with subject "${subject}"`);
+    }).catch((error) => {
+        console.error("Error sending email:", error);
     });
 };
 
